@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+
+  pre_build:
+    commands:
+      - echo Logging in to AWS CodeArtifact...
+      - export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain nextwork --domain-owner 069062668071 --region eu-west-2 --query authorizationToken --output text)
+
+  build:
+    commands:
+      - echo Build started on $(date)
+      - mvn -s settings.xml clean package
+
+post_build:
+  commands:
+    - echo Build completed on $(date)
+
+artifacts:
+  files:
+    - target/*.war
+  discard-paths: no
