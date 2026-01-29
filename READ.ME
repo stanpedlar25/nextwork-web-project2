@@ -1,0 +1,86 @@
+NextWork Web Application – CI/CD Pipeline (AWS)
+Overview
+
+This project demonstrates a complete CI/CD pipeline for a Java-based web application, built and deployed on AWS using native DevOps services. The pipeline automates build, test, and deployment stages triggered by changes pushed to GitHub.
+
+The focus of this project is on understanding how AWS CI/CD services integrate end-to-end in a real deployment workflow.
+
+Why this project
+
+To gain hands-on experience building CI/CD pipelines using AWS-native tools
+
+To understand how source control, build, and deployment stages work together
+
+To practise deploying application updates automatically with minimal manual intervention
+
+Architecture / Pipeline Flow
+
+Code changes are pushed to the GitHub repository
+
+AWS CodePipeline detects the change and triggers the pipeline
+
+AWS CodeBuild builds the application using Maven (buildspec.yml)
+
+Build artifacts are passed to AWS CodeDeploy
+
+CodeDeploy deploys the application to an EC2 instance running Apache Tomcat
+
+The pipeline is designed to validate that even small changes (e.g. updates to index.jsp) are automatically built and deployed.
+
+Technologies Used
+
+AWS CodePipeline – CI/CD orchestration
+
+AWS CodeBuild – build and test stage
+
+AWS CodeDeploy – automated deployment to EC2
+
+AWS EC2 – application hosting
+
+Apache Tomcat – web application server
+
+Maven – build tool
+
+GitHub – source control
+
+Linux – deployment environment
+
+Repository Structure
+
+src/main – application source code
+
+scripts/ – CodeDeploy lifecycle scripts
+
+buildspec.yml – CodeBuild build instructions
+
+appspec.yml – CodeDeploy deployment configuration
+
+pom.xml – Maven project configuration
+
+How it was built
+
+CI/CD pipeline configured using AWS CodePipeline
+
+Build stage defined with CodeBuild and Maven
+
+Deployment automated using CodeDeploy lifecycle hooks
+
+Application tested by triggering deployments via GitHub commits
+
+Documentation & Evidence
+
+This project was completed as part of the NextWork DevOps programme.
+
+Full step-by-step documentation, explanations, and screenshots are available via NextWork:
+
+(Link to your NextWork project documentation here)
+
+What I’d improve next
+
+Add automated testing into the build stage
+
+Implement blue/green or rolling deployments
+
+Add monitoring and alerts using Amazon CloudWatch
+
+Containerise the application using Docker
